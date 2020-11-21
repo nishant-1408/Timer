@@ -1,0 +1,75 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+ *{
+   background-color:black;
+
+     box-sizing:border-box;
+  }
+
+  html{
+    font-size:100%;
+}
+ 
+p {
+  text-align: center ;
+  font-size: 80px;
+      border: 20px solid white;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  margin-right:200px;
+    margin-left: 80px;
+
+  color:white;
+  text-shadow:2px 2px 2px blue;
+  background-color:black;
+  position:absolute;
+  
+}
+
+h1{
+  font-size: 60px;
+margin-top: 100px;
+  margin-bottom: 20px;
+  margin-right:200px;
+  margin-left: 30px;
+ color:white;
+  text-shadow:2px 2px 5px red;
+   position:relative;
+
+}
+</style>
+</head>
+<body>
+<h1>New Years Eve Countdown</h1>
+<p id="Timer"></p>
+<h1></h1>
+
+<script>
+var countDownDate = new Date("jan 1, 2021 00:00:00").getTime();
+
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+    
+  var distance = countDownDate - now;
+    
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  document.getElementById("Timer").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("Timer").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+
+</body>
+</html>
